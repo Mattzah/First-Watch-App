@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(unzip -p samsung-health-sensor-api-1.4.1.aar classes.jar)",
+      "Bash(jar tf *)",
+      "Bash(python3 -c ' *)",
+      "Bash(unzip -l /tmp/samsung-classes.jar)",
+      "Bash(unzip -p /tmp/samsung-classes.jar 'com/samsung/android/service/health/tracking/data/ValueKey$HeartRateSet.class')",
+      "Bash(javap -p /tmp/HeartRateSet.class)",
+      "Bash(mkdir -p /tmp/samsung_sdk)",
+      "Read(//tmp/**)",
+      "Bash(unzip -q /tmp/samsung-classes.jar)",
+      "Bash('C:/Program Files/Android/Android Studio/jbr/bin/javap.exe' -p com/samsung/android/service/health/tracking/HealthTrackingService.class)",
+      "Bash('C:/Program Files/Android/Android Studio/jbr/bin/javap.exe' -p com/samsung/android/service/health/tracking/ConnectionListener.class)",
+      "Bash('C:/Program Files/Android/Android Studio/jbr/bin/javap.exe' -p 'com/samsung/android/service/health/tracking/HealthTracker$TrackerEventListener.class')",
+      "Bash('C:/Program Files/Android/Android Studio/jbr/bin/javap.exe' -p 'com/samsung/android/service/health/tracking/HealthTracker$TrackerError.class')",
+      "Bash('C:/Program Files/Android/Android Studio/jbr/bin/javap.exe' -p com/samsung/android/service/health/tracking/data/HealthTrackerType.class)",
+      "Bash('C:/Program Files/Android/Android Studio/jbr/bin/javap.exe' -p com/samsung/android/service/health/tracking/data/DataPoint.class)",
+      "Bash('C:/Program Files/Android/Android Studio/jbr/bin/javap.exe' -p 'com/samsung/android/service/health/tracking/data/ValueKey$HeartRateSet.class')"
+    ]
+  }
+}
