@@ -40,6 +40,9 @@ import com.example.firstwatchapp.presentation.theme.FirstWatchAppTheme
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // Keep the screen on while the app is open so the 60-second
+        // calibration buffers can fill without the display going to sleep.
+        window.addFlags(android.view.WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
         setContent {
             WatchApp()
         }
