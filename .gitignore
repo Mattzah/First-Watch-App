@@ -14,3 +14,14 @@
 .cxx
 local.properties
 .claude/
+
+# Android keystore files (never commit signing keys)
+*.jks
+*.keystore
+
+# Generated files
+/app/release/
+app/release/
+
+# Kotlin symbol processing cache
+.kotlin/

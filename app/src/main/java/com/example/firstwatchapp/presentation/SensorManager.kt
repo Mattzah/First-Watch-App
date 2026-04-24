@@ -18,6 +18,7 @@ data class SensorState(
     val bpm: Int? = null,
     val hrv: Double? = null,
     val skinConductance: Float? = null,
+    val edaBaseline: Double? = null,
     val edaDeviation: Double? = null,
     val hrValid: Boolean = false,
     val edaValid: Boolean = false,
@@ -168,9 +169,14 @@ class SensorManager(private val context: Context) {
                 edaBuffer.add(Pair(now, conductance))
                 pruneBuffer(edaBuffer, now)
 
+                val baseline = calculateEdaBaseline()
+                val deviation = baseline?.let {
+                    if (it != 0.0) ((conductance - it) / it * 100.0) else null
+                }
                 _state.value = _state.value.copy(
                     skinConductance = conductance,
-                    edaDeviation = calculateEdaDeviation(conductance),
+                    edaBaseline = baseline,
+                    edaDeviation = deviation,
                     edaValid = true
                 )
             }
@@ -202,11 +208,9 @@ class SensorManager(private val context: Context) {
         return sqrt(squaredDiffs.average())
     }
 
-    private fun calculateEdaDeviation(current: Float): Double? {
+    private fun calculateEdaBaseline(): Double? {
         if (edaBuffer.size < 2) return null
         if (edaStartTime == 0L || System.currentTimeMillis() - edaStartTime < WINDOW_MS) return null
-
-        val baseline = edaBuffer.map { it.second.toDouble() }.average()
-        return if (baseline != 0.0) ((current - baseline) / baseline * 100.0) else null
+        return edaBuffer.map { it.second.toDouble() }.average()
     }
 }
