@@ -74,8 +74,7 @@ dependencies {
     implementation("androidx.room:room-ktx:2.6.0")
     kapt("androidx.room:room-compiler:2.6.0")
 
-    // Google Sign-In (OAuth) + OkHttp for Drive REST upload
-    implementation("com.google.android.gms:play-services-auth:20.7.0")
+    // OkHttp for Google Sheets REST upload
     implementation("com.squareup.okhttp3:okhttp:4.12.0")
 
     androidTestImplementation(platform("androidx.compose:compose-bom:2023.03.00"))

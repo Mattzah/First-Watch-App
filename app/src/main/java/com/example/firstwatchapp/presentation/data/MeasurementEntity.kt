@@ -11,5 +11,7 @@ data class MeasurementEntity(
     val hrv: Double?,
     val edaMicrosiemens: Float?,
     val edaBaseline: Double?,
-    val edaPercentChange: Double?
+    val edaPercentChange: Double?,
+    // Session ID generated once per app launch — used to separate experiments in Sheets
+    val sessionId: String = ""
 )

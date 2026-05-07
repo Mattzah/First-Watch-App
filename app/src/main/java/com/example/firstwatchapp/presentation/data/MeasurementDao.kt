@@ -17,4 +17,8 @@ interface MeasurementDao {
 
     @Query("SELECT * FROM measurements ORDER BY timestamp ASC")
     suspend fun getAll(): List<MeasurementEntity>
+
+    // Called after a successful Sheets upload to remove confirmed rows
+    @Query("DELETE FROM measurements WHERE id IN (:ids)")
+    suspend fun deleteByIds(ids: List<Long>)
 }
